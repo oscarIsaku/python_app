@@ -1,8 +1,8 @@
-from setuotools import find_packages, setup
+from setuptools import find_packages, setup
 
 setup(
   name='lgtm',
-  version=1.0.0,
+  version='1.0.0',
   packages=find_packages(exclude=('test',)),
   install_requires=[
     'Click~=7.0',
