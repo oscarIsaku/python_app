@@ -2,7 +2,7 @@ version:2
 jobs:
  setup_dependencies:
   docker:
-   - image: cicleci/python3.7.3
+   - image: circleci/python3.7.3
   steps:
    - checkout
    - restore_cache:
@@ -13,16 +13,16 @@ jobs:
    - save_cache:
     key: deps-{{ checksum "requirements.lock"}}
     paths: - "~/.local"
-test:
- docker:
-  - image: circleci/python3.7.3
- steps:
-  - checkout
-  - restore_cache:
-   key: deps-{{ checksum "requirements.lock"}}
-  - run:
-   command: | 
-    python3 -m unittest -v
+  test:
+  docker:
+    - image: circleci/python3.7.3
+  steps:
+    - checkout
+    - restore_cache:
+    key: deps-{{ checksum "requirements.lock"}}
+    - run:
+    command: | 
+      python3 -m unittest -v
 workflows:
  version:2
  all:
