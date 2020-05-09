@@ -2,7 +2,7 @@ import requests
 from io import BytesIO
 from pathlib import Path
 
-class LocalImages:
+class LocalImage:
   """ローカルファイルから画像取得"""
   def __init__(self,path):
     self._path = path
